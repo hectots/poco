@@ -420,6 +420,8 @@ void MySQLTest::testDateTime()
 	_pExecutor->date();
 	recreatePersonTimeTable();
 	_pExecutor->time();
+	recreatePersonTimestampTable();
+	_pExecutor->timestamp();
 }
 
 
@@ -756,6 +758,15 @@ void MySQLTest::recreatePersonLongBLOBTable()
 	try { *_pSession << "CREATE TABLE Person (LastName VARCHAR(30), FirstName VARCHAR(30), Address VARCHAR(30), Biography LONGTEXT)", now; }
 	catch(ConnectionException& ce){ std::cout << ce.displayText() << std::endl; fail ("recreatePersonLongBLOBTable()"); }
 	catch(StatementException& se){ std::cout << se.displayText() << std::endl; fail ("recreatePersonLongBLOBTable()"); }
+}
+
+
+void MySQLTest::recreatePersonTimestampTable()
+{
+	dropTable("Person");
+	try { *_pSession << "CREATE TABLE Person (LastName VARCHAR(30), FirstName VARCHAR(30), Address VARCHAR(30), Birthday TIMESTAMP(6))", now; }
+	catch(ConnectionException& ce){ std::cout << ce.displayText() << std::endl; fail ("recreatePersonTimestampTable()"); }
+	catch(StatementException& se){ std::cout << se.displayText() << std::endl; fail ("recreatePersonTimestampTable()"); }
 }
 
 

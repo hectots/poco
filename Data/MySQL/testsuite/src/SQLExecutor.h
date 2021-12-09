@@ -84,6 +84,7 @@ public:
 	void date();
 	void time();
 	void longBlob();
+	void timestamp();
 	void unsignedInts();
 	void floats();
 	void doubles();

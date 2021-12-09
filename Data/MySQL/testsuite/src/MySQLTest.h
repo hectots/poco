@@ -117,6 +117,7 @@ private:
 	void recreatePersonDateTable();
 	void recreatePersonTimeTable();
 	void recreatePersonLongBLOBTable();
+	void recreatePersonTimestampTable();
 	void recreateStringsTable();
 	void recreateIntsTable();
 	void recreateUnsignedIntsTable();
